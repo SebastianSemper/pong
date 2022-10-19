@@ -1,0 +1,17 @@
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/pong.dll
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/pong.pdb
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/Google.Protobuf.dll
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/ICSharpCode.SharpZipLib.dll
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/System.Buffers.dll
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/System.Memory.dll
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/System.Numerics.Vectors.dll
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/System.Runtime.CompilerServices.Unsafe.dll
+/home/seb/priv/godot/pong/.mono/temp/bin/Debug/TorchSharp.dll
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.csproj.AssemblyReference.cache
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.GeneratedMSBuildEditorConfig.editorconfig
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.AssemblyInfoInputs.cache
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.AssemblyInfo.cs
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.csproj.CoreCompileInputs.cache
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.csproj.CopyComplete
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.dll
+/home/seb/priv/godot/pong/.mono/temp/obj/Debug/pong.pdb

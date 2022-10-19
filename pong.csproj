@@ -1,0 +1,9 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="libtorch-cpu" Version="1.11.0.1" />
+    <PackageReference Include="TorchSharp" Version="0.98.1" />
+  </ItemGroup>
+</Project>

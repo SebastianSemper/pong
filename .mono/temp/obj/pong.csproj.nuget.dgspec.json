@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/seb/priv/godot/pong/pong.csproj": {}
+  },
+  "projects": {
+    "/home/seb/priv/godot/pong/pong.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/seb/priv/godot/pong/pong.csproj",
+        "projectName": "pong",
+        "projectPath": "/home/seb/priv/godot/pong/pong.csproj",
+        "packagesPath": "/home/seb/.nuget/packages/",
+        "outputPath": "/home/seb/priv/godot/pong/.mono/temp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/seb/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            },
+            "TorchSharp": {
+              "target": "Package",
+              "version": "[0.98.1, )"
+            },
+            "libtorch-cpu": {
+              "target": "Package",
+              "version": "[1.11.0.1, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.110/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

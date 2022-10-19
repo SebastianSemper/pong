@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "0bxMHxAeWejwHGEDmn7qsyJCD7lThBDDmtYgeCY0A2uClPZJlZV/RtmGGcz2m604SCLhq1myomm0PRvJXAuqeQ==",
+  "success": true,
+  "projectFilePath": "/home/seb/priv/godot/pong/pong.csproj",
+  "expectedPackageFiles": [
+    "/home/seb/.nuget/packages/google.protobuf/3.21.5/google.protobuf.3.21.5.nupkg.sha512",
+    "/home/seb/.nuget/packages/libtorch-cpu/1.11.0.1/libtorch-cpu.1.11.0.1.nupkg.sha512",
+    "/home/seb/.nuget/packages/libtorch-cpu-linux-x64/1.11.0.1/libtorch-cpu-linux-x64.1.11.0.1.nupkg.sha512",
+    "/home/seb/.nuget/packages/libtorch-cpu-osx-x64/1.11.0.1/libtorch-cpu-osx-x64.1.11.0.1.nupkg.sha512",
+    "/home/seb/.nuget/packages/libtorch-cpu-win-x64/1.11.0.1/libtorch-cpu-win-x64.1.11.0.1.nupkg.sha512",
+    "/home/seb/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/seb/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.2/microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512",
+    "/home/seb/.nuget/packages/sharpziplib/1.3.3/sharpziplib.1.3.3.nupkg.sha512",
+    "/home/seb/.nuget/packages/system.buffers/4.4.0/system.buffers.4.4.0.nupkg.sha512",
+    "/home/seb/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/home/seb/.nuget/packages/system.numerics.vectors/4.4.0/system.numerics.vectors.4.4.0.nupkg.sha512",
+    "/home/seb/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.2/system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "/home/seb/.nuget/packages/torchsharp/0.98.1/torchsharp.0.98.1.nupkg.sha512"
+  ],
+  "logs": []
+}
