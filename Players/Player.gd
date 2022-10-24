@@ -13,6 +13,9 @@ func _abstractInit(_character):
 	character = _character
 	self.connect("move_down", character, "move_down")
 	self.connect("move_up", character, "move_up")
+	
+func _receive_frame(frame):
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
