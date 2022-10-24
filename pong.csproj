@@ -3,7 +3,8 @@
     <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="libtorch-cpu" Version="1.11.0.1" />
+    <PackageReference Include="libtorch-cpu-linux-x64" Version="1.11.0.1" />
+    <PackageReference Include="TensorFlow.NET" Version="0.70.1" />
     <PackageReference Include="TorchSharp" Version="0.98.1" />
   </ItemGroup>
 </Project>

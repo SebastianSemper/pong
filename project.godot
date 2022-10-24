@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "AbstractAgent",
+"language": "GDScript",
+"path": "res://Players/AbstractAgent.gd"
+}, {
+"base": "Node",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Players/Player.gd"
+} ]
+_global_script_class_icons={
+"AbstractAgent": "",
+"Player": ""
+}
+
 [application]
 
 config/name="pong"

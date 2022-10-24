@@ -1,8 +1,6 @@
-extends Node
+extends Player
 
-var character
 var agent
-
 var frame_mutex
 var frame_semaphore
 var frame_thread
@@ -21,11 +19,9 @@ func _ready():
 	current_frame = Image.new()
 	current_frame.create(64, 64, false, Image.FORMAT_L8)
 	
-	agent = preload("NN1.tscn").instance()
-	add_child(agent)
-	
-func init(_character):
-	character = _character
+func init(_character, _agent):
+	._abstractInit(_character)
+	agent = _agent
 
 func _receive_frame(frame):
 	frame_mutex.lock()
@@ -52,11 +48,9 @@ func _process_frame():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if current_state == -1:
-		character.down()
+		emit_signal("move_down")
 	elif current_state == +1:
-		character.up()
-	else:
-		character.damp(delta)
+		emit_signal("move_up")
 
 func _exit_tree():
 	frame_mutex.lock()

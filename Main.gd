@@ -23,9 +23,10 @@ var round_running = 0
 
 var human_scene = preload("res://Players/Human.tscn")
 var ai_scene = preload("res://Players/AI.tscn")
+var random_ai = preload("res://Players/RandomAgent.tscn")
 
 var left_player = ai_scene.instance()
-var right_player = ai_scene.instance()
+var right_player = human_scene.instance()
 
 var frame_mutex
 var frame_semaphore
@@ -49,12 +50,12 @@ func _ready():
 	add_child(right_char)
 	
 	#left_player.init(left_char, "move_left_up", "move_left_down")
-	left_player.init(left_char)
+	left_player.init(left_char, random_ai.instance())
 	add_child(left_player)
 	self.connect("frame_ready", left_player, "_receive_frame")
 	
-	#right_player.init(right_char, "move_right_up", "move_right_down")
-	right_player.init(right_char)
+	right_player.init(right_char, "move_right_up", "move_right_down")
+	#right_player.init(right_char)
 	self.connect("frame_ready", right_player, "_receive_frame")
 	add_child(right_player)
 	
