@@ -24,6 +24,8 @@ var round_running = 0
 var human_scene = preload("res://Players/Human.tscn")
 var ai_scene = preload("res://Players/AI.tscn")
 var random_ai = preload("res://Players/RandomAgent.tscn")
+var physics_ai = preload("res://Players/PhysicsAgent.tscn")
+var reinforced_ai = preload("res://Players/ReinforcedAgent.tscn")
 
 var left_player = ai_scene.instance()
 var right_player = human_scene.instance()
@@ -50,7 +52,7 @@ func _ready():
 	add_child(right_char)
 	
 	#left_player.init(left_char, "move_left_up", "move_left_down")
-	left_player.init(left_char, random_ai.instance())
+	left_player.init(left_char, reinforced_ai.instance())
 	add_child(left_player)
 	self.connect("frame_ready", left_player, "_receive_frame")
 	
@@ -81,7 +83,6 @@ func _new_ball():
 	ball = ball_scene.instance()
 	add_child(ball)
 	ball.init(Vector2(400, 0.5 * (20 + 530)))
-	
 
 func _on_Bell_timeout():
 	_start_round()

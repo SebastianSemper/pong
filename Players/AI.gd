@@ -7,8 +7,6 @@ var frame_thread
 var frame_thread_stop
 var current_frame
 
-var current_state = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	frame_mutex = Mutex.new()
@@ -41,15 +39,15 @@ func _process_frame():
 			break
 			
 		frame_mutex.lock()
-		current_state = agent.get_next_state(current_frame)
+		agent.get_next_state(current_frame)
 		frame_mutex.unlock()
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if current_state == -1:
+	if agent.current_state == -1:
 		emit_signal("move_down")
-	elif current_state == +1:
+	elif agent.current_state == +1:
 		emit_signal("move_up")
 
 func _exit_tree():

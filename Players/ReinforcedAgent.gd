@@ -1,5 +1,5 @@
 extends AbstractAgent
 
 func _get_next_state(frame):
-	return randi() % 3 - 1
+	return $tf._process_image(frame)
 

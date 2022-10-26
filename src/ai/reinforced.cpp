@@ -4,6 +4,7 @@ using namespace godot;
 
 void GDReinforced::_register_methods() {
   register_method("_process", &GDReinforced::_process);
+  register_method("_process_image", &GDReinforced::_process_image);
 }
 
 GDReinforced::GDReinforced() {}
@@ -17,11 +18,18 @@ void GDReinforced::_init() {
   time_passed = 0.0;
 }
 
-void GDReinforced::_process(float delta) {
-  time_passed += delta;
+void GDReinforced::_process(float delta) {}
 
-  Vector2 new_position = Vector2(10.0 + (10.0 * sin(time_passed * 2.0)),
-                                 10.0 + (10.0 * cos(time_passed * 1.5)));
+int GDReinforced::_process_image(Image *img) {
+  // https://github.com/tensorflow/tensorflow/issues/8033
 
-  set_position(new_position);
+  PoolByteArray rawData = img->get_data();
+  const uint8_t *imagePointer = rawData.read().ptr();
+
+  tensorflow::Tensor tensor = tensorflow::Tensor(
+      tensorflow::DataType::DT_UINT8, tensorflow::TensorShape({64, 64}));
+
+  uint8_t *tensorPointer = tensor.flat<uint8_t>().data();
+  memcpy(tensorPointer, imagePointer, 64 * 64 * sizeof(uint8_t));
+  return 0;
 }

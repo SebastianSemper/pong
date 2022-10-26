@@ -15,9 +15,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if position.y > clamp_values.y - $CollisionShape2D.shape.extents.y:
-		linear_velocity += - 4 * linear_velocity
+		linear_velocity += - 2.0 * linear_velocity
 	if position.y < clamp_values.x + $CollisionShape2D.shape.extents.y:
-		linear_velocity += - 4 * linear_velocity
+		linear_velocity += - 2.0 * linear_velocity
 	
 	if (pow(impulse_velocity.x, 2) + pow(impulse_velocity.y, 2) > 0):
 		linear_velocity += impulse_velocity
@@ -29,10 +29,10 @@ func _process(delta):
 	impulse_velocity = Vector2(0,0)
 
 func move_down():
-	impulse_velocity += Vector2(0,+max_speed)
+	impulse_velocity = Vector2(0,+max_speed)
 	
 func move_up():
-	impulse_velocity += Vector2(0,-max_speed)
+	impulse_velocity = Vector2(0,-max_speed)
 
 func init(_start_position, _clamp_values):
 	start_position = _start_position
