@@ -27,39 +27,62 @@ var random_ai = preload("res://Players/RandomAgent.tscn")
 var physics_ai = preload("res://Players/PhysicsAgent.tscn")
 var reinforced_ai = preload("res://Players/ReinforcedAgent.tscn")
 
-var left_player = ai_scene.instance()
-var right_player = human_scene.instance()
+var left_player
+var right_player
 
 var frame_mutex
 var frame_semaphore
 var frame_thread
 var frame_thread_stop
 var current_frame
-var frame_time = 0.1
+var frame_time = 0.01
 var time_since_last_frame = 0
 signal frame_ready(frame)
+
+func _make_player(character, type):
+	var player 
+	match type:
+		"physics":
+			player = ai_scene.instance()
+			var agent = physics_ai.instance()
+			agent.scene = self
+			agent.character = character
+			player.init(character, agent)
+		"random":
+			player = ai_scene.instance()
+			player.init(character, random_ai.instance())
+		"reinforced":
+			player = ai_scene.instance()
+			player.init(character, reinforced_ai.instance())
+		"human":
+			player = human_scene.instance()
+			player.init(character)
+	self.connect("frame_ready", player, "_receive_frame")
+	add_child(player)
+	return player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	get_tree().get_root().set_transparent_background(true)
-	OS.window_per_pixel_transparency_enabled = true
-	#Engine.time_scale = 2.0
+	Engine.time_scale = 2.0
 	
-	left_char.init(Vector2(20,300), Vector2(20,600-70))
-	right_char.init(Vector2(780,300), Vector2(20,600-70))
+	left_char.init(
+		Vector2(20,300),
+		Vector2(20,600-70),
+		"move_left_down",
+		"move_left_up"
+		)
+	right_char.init(
+		Vector2(780,300),
+		Vector2(20,600-70),
+		"move_right_down",
+		"move_right_up"
+	)
 	add_child(left_char)
 	add_child(right_char)
 	
-	#left_player.init(left_char, "move_left_up", "move_left_down")
-	left_player.init(left_char, reinforced_ai.instance())
-	add_child(left_player)
-	self.connect("frame_ready", left_player, "_receive_frame")
-	
-	right_player.init(right_char, "move_right_up", "move_right_down")
-	#right_player.init(right_char)
-	self.connect("frame_ready", right_player, "_receive_frame")
-	add_child(right_player)
+	left_player = _make_player(left_char, "physics")
+	right_player = _make_player(right_char, "physics")
 	
 	top_field.init(Vector2(400, 20), Vector2(360, 3))
 	bottom_field.init(Vector2(400, 530), Vector2(360, 3))
@@ -75,7 +98,7 @@ func _ready():
 	frame_semaphore = Semaphore.new()
 	frame_thread = Thread.new()
 	frame_thread_stop = false
-	frame_thread.start(self, "_get_current_frame")
+	frame_thread.start(self, "_send_current_frame")
 	
 	_new_ball()
 	
@@ -114,7 +137,7 @@ func _process(delta):
 			frame_semaphore.post()
 			time_since_last_frame = 0
 		
-func _get_current_frame():
+func _send_current_frame():
 	while true:
 		frame_semaphore.wait()
 		

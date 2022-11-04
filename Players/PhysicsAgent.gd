@@ -1,13 +1,15 @@
 extends AbstractAgent
 
-var character = 0
-var ball = 0
+var character
+var scene
 
 func _get_next_state(frame):
 	var destination = _bounce_path(
-		ball.position, ball.linear_velocity, character.start_position.x
+		scene.ball.position,
+		scene.ball.linear_velocity,
+		character.start_position.x
 	)
-	destination.y = clamp(destination.y, 55, 480)
+	destination.y = clamp(destination.y, 90, 460)
 	return _move_to_y(destination.y)
 
 func _bounce_path(start, direction, target_x):
@@ -28,11 +30,11 @@ func _bounce_path(start, direction, target_x):
 			bounce_direction.x *= -1
 			return _bounce_path(bounce_position, bounce_direction, target_x)
 			
-	if destination.y < 20:
-		bounce_distance = (20 - start.y) / direction.y
+	if destination.y < 23:
+		bounce_distance = (23 - start.y) / direction.y
 		bounces = true
-	elif destination.y > 530:
-		bounce_distance = (530 - start.y) / direction.y
+	elif destination.y > 527:
+		bounce_distance = (527 - start.y) / direction.y
 		bounces = true
 	if bounces:
 		var bounce_direction = 1.0 * direction
@@ -50,7 +52,7 @@ func _move_to_y(target_y):
 
 		
 func _prob_relu(x):
-	return pow(clamp(x / 35.0, 0, 1), 2)
+	return pow(clamp(x / 70.0, 0, 1), 1.5)
 	
 func _draw_bernoulli(x):
 	if x == 1:

@@ -6,6 +6,8 @@ var max_speed = 20
 var linear_damp = 10
 var linear_velocity
 var impulse_velocity
+var up_event
+var down_event
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,8 +36,10 @@ func move_down():
 func move_up():
 	impulse_velocity = Vector2(0,-max_speed)
 
-func init(_start_position, _clamp_values):
+func init(_start_position, _clamp_values, _down_event, _up_event):
 	start_position = _start_position
 	clamp_values = _clamp_values
 	position = start_position
+	down_event = _down_event
+	up_event = _up_event
 
