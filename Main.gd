@@ -64,7 +64,7 @@ func _make_player(character, type):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	Engine.time_scale = 2.0
+	Engine.time_scale = 1.0
 	
 	left_char.init(
 		Vector2(20,300),
@@ -81,7 +81,7 @@ func _ready():
 	add_child(left_char)
 	add_child(right_char)
 	
-	left_player = _make_player(left_char, "physics")
+	left_player = _make_player(left_char, "reinforced")
 	right_player = _make_player(right_char, "physics")
 	
 	top_field.init(Vector2(400, 20), Vector2(360, 3))
